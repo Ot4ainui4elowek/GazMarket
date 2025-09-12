@@ -3,9 +3,9 @@ import type {
 	ILoginResponse,
 	IUser,
 } from '../../../models/response/LoginResponse'
-import type { IRegistrationResponse } from '../../../models/response/RegistrarionResponse'
+import type { ISignUpResponse } from '../../../models/response/RegistrarionResponse'
 import { authLogin } from './thunks/loginThunk'
-import { authSignUp } from './thunks/registratinThunk'
+import { authSignUp } from './thunks/signUpThunk'
 
 export interface IAuthReducer {
 	user?: IUser
@@ -25,9 +25,15 @@ export const authorizationReducer = createSlice({
 	reducers: {},
 	extraReducers: builder => {
 		builder
+			.addCase(authSignUp.rejected.type, (state, action: PayloadAction) => {
+				console.log('reject 1 ' + action.payload)
+			})
+			.addCase(authLogin.rejected.type, (state, action: PayloadAction) => {
+				console.log('reject' + action.payload)
+			})
 			.addCase(
 				authSignUp.fulfilled.type,
-				(state, action: PayloadAction<IRegistrationResponse>) => {
+				(state, action: PayloadAction<ISignUpResponse>) => {
 					const user = action.payload
 					state.isLoggedIn = !!user
 					state.user = {
@@ -40,7 +46,9 @@ export const authorizationReducer = createSlice({
 			.addCase(
 				authLogin.fulfilled.type,
 				(state, action: PayloadAction<ILoginResponse>) => {
-					const user = action.payload.user
+					console.log(action.payload)
+					console.log('fulfill')
+					console.log(action.payload.user)
 					state.user = user
 					state.isLoggedIn = !!user
 				}

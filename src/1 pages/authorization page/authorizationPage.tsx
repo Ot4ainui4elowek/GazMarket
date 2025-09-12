@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../../store/hooks'
-import { authLogin } from '../../store/reducers/authReducer/thunks/loginThunk'
+import { authSignUp } from '../../store/reducers/authReducer/thunks/signUpThunk'
 import './authorizationPage.css'
 
 function App() {
@@ -13,8 +13,9 @@ function App() {
 			<button
 				onClick={() =>
 					dispatch(
-						authLogin({
-							username: 'emilys',
+						authSignUp({
+							email: 'sssds',
+							username: 'emilysssssdss',
 							password: 'emilyspass',
 						})
 					)

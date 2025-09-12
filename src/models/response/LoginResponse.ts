@@ -1,6 +1,6 @@
 export interface ILoginResponse {
-	user: IUser
 	msg: string
+	user: IUser
 }
 
 export interface IUser {

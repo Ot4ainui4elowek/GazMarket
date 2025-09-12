@@ -1,4 +1,4 @@
-export interface IRegistrationResponse {
+export interface ISignUpResponse {
 	id: number
 	username: string
 	password: string
