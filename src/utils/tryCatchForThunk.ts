@@ -5,9 +5,11 @@ import type { ErrorResponse } from '../models/commonTypes'
 export async function tryCatch<T>({
 	call,
 	thunkApi,
+	errorCall,
 }: {
 	thunkApi: GetThunkAPI<AsyncThunkConfig>
 	call: () => Promise<T>
+	errorCall?: (E: unknown) => void
 }): Promise<T | ReturnType<typeof thunkApi.rejectWithValue>> {
 	try {
 		const data = await call()
@@ -18,6 +20,7 @@ export async function tryCatch<T>({
 		console.error(
 			'REQUEST_ERROR: ' + (error.response?.data.message ?? error.message)
 		)
+		errorCall && errorCall(e)
 		return thunkApi.rejectWithValue(
 			error.response?.data.message ?? error.message
 		)

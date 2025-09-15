@@ -1,6 +1,7 @@
 import type { AppRootStateType } from '../../store'
 
-export const isLoggedIn = (state: AppRootStateType) =>
+export const isLoggedInSelector = (state: AppRootStateType) =>
 	state.authorization.isLoggedIn
 
-export const user = (state: AppRootStateType) => state.authorization.user
+export const userSelector = (state: AppRootStateType) =>
+	state.authorization.user

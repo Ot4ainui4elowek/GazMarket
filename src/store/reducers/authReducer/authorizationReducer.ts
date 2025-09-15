@@ -4,7 +4,9 @@ import type {
 	IUser,
 } from '../../../models/response/LoginResponse'
 import type { ISignUpResponse } from '../../../models/response/RegistrarionResponse'
+import { loginCheckThunk } from './thunks/loginCheckThunk'
 import { authLogin } from './thunks/loginThunk'
+import { logoutThunk } from './thunks/logoutthunk'
 import { authSignUp } from './thunks/signUpThunk'
 
 export interface IAuthReducer {
@@ -28,9 +30,7 @@ export const authorizationReducer = createSlice({
 			.addCase(authSignUp.rejected.type, (state, action: PayloadAction) => {
 				console.log('reject 1 ' + action.payload)
 			})
-			.addCase(authLogin.rejected.type, (state, action: PayloadAction) => {
-				console.log('reject' + action.payload)
-			})
+
 			.addCase(
 				authSignUp.fulfilled.type,
 				(state, action: PayloadAction<ISignUpResponse>) => {
@@ -43,16 +43,24 @@ export const authorizationReducer = createSlice({
 					}
 				}
 			)
+			.addCase(authLogin.rejected.type, (state, action: PayloadAction) => {
+				console.log('reject' + action.payload)
+			})
 			.addCase(
 				authLogin.fulfilled.type,
 				(state, action: PayloadAction<ILoginResponse>) => {
-					console.log(action.payload)
-					console.log('fulfill')
-					console.log(action.payload.user)
 					state.user = user
 					state.isLoggedIn = !!user
 				}
 			)
+			.addCase(
+				loginCheckThunk.fulfilled.type,
+				(state, action: PayloadAction<IUser>) => {
+					state.isLoggedIn = !!action.payload
+					state.user = action.payload
+				}
+			)
+			.addCase(logoutThunk.fulfilled.type, (_, action) => {})
 	},
 })
 

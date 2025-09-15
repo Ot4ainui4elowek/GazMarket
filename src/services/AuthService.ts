@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios'
 import $api from '../http'
-import type { ILoginResponse } from '../models/response/LoginResponse'
+import type { ILoginResponse, IUser } from '../models/response/LoginResponse'
 import type { ISignUpResponse } from '../models/response/RegistrarionResponse'
 
 export default class AuthService {
@@ -14,6 +14,14 @@ export default class AuthService {
 		user: ILoginRequest
 	): Promise<AxiosResponse<ILoginResponse>> {
 		return $api.post('/users/login', user)
+	}
+
+	static async loginCheck(): Promise<AxiosResponse<IUser>> {
+		return $api.get('/users/login-check')
+	}
+
+	static async logout(): Promise<AxiosResponse> {
+		return $api.get('/users/logout')
 	}
 }
 

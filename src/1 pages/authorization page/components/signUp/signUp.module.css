@@ -1,0 +1,10 @@
+.signUpButton {
+	color: #000000;
+	padding: 0rem;
+	text-decoration: underline;
+	padding: 0.5rem 0rem;
+	&:hover {
+		background-color: transparent;
+		cursor: pointer;
+	}
+}

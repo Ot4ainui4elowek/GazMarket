@@ -1,8 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { AxiosError } from 'axios'
+import { toast } from 'react-toastify'
 import AuthService, {
 	type ILoginRequest,
 } from '../../../../services/AuthService'
+import { showAuthError } from '../../../../utils/requestsErrors'
 import USER_LOCAL_STORAGE_API from '../../../../utils/userLocalSGApi'
 
 export const authLogin = createAsyncThunk(
@@ -13,9 +15,11 @@ export const authLogin = createAsyncThunk(
 		try {
 			const res = await AuthService.login({ ...arg })
 			USER_LOCAL_STORAGE_API.setUser(res.data.user)
+			toast.success('Вход успешно выполнен')
 			return res.data
 		} catch (error) {
 			const err = error as AxiosError
+			showAuthError(error)
 			return rejectWithValue(
 				`  ${JSON.stringify(
 					err.response?.data
