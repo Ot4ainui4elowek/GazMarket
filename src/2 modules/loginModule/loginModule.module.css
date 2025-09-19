@@ -1,0 +1,27 @@
+.logInModule {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+@media screen and (max-width: 991.98px) {
+	.logInModule {
+		max-width: calc(100dvw - 8rem);
+	}
+}
+@media screen and (max-width: 430px) {
+	.logInModule {
+		padding: 5rem 2rem;
+		max-width: calc(100dvw - 4rem);
+	}
+}
+
+.loginHeader {
+	font-weight: 600;
+	margin-bottom: 4rem;
+}
+
+.loginButton {
+	background-color: #383838;
+	border: 1px solid #ffffffbd;
+}

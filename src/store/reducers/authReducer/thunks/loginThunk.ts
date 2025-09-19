@@ -1,13 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { AxiosError } from 'axios'
 import { toast } from 'react-toastify'
-import AuthService, {
-	type ILoginRequest,
-} from '../../../../services/AuthService'
+import AuthService from '../../../../services/AuthService'
+import type { ILoginRequest } from '../../../../types/auth'
 import { showAuthError } from '../../../../utils/requestsErrors'
 import USER_LOCAL_STORAGE_API from '../../../../utils/userLocalSGApi'
 
-export const authLogin = createAsyncThunk(
+export const authLoginThunk = createAsyncThunk(
 	'user/login',
 	async (arg: ILoginRequest, thunkApi) => {
 		const { rejectWithValue } = thunkApi

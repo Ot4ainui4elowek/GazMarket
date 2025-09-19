@@ -1,10 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { toast } from 'react-toastify'
-import type { IUser } from '../../../../models/response/LoginResponse'
-import type { ISignUpResponse } from '../../../../models/response/RegistrarionResponse'
-import AuthService, {
-	type ISignUpRequest,
-} from '../../../../services/AuthService'
+import AuthService from '../../../../services/AuthService'
+import type { ISignUpRequest } from '../../../../types/auth'
+import type { IUser } from '../../../../types/response/LoginResponse'
+import type { ISignUpResponse } from '../../../../types/response/RegistrarionResponse'
 import { showAuthError } from '../../../../utils/requestsErrors'
 import { tryCatch } from '../../../../utils/tryCatchForThunk'
 

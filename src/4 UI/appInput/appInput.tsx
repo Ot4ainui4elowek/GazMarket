@@ -3,14 +3,19 @@ import s from './appInput.module.css'
 type Props = {
 	inputProps?: React.InputHTMLAttributes<HTMLInputElement>
 	title?: string
+	inputHeaderActions?: React.JSX.Element
 }
-export const AppInput = ({ inputProps, title }: Props) => {
+export const AppInput = ({ inputProps, title, inputHeaderActions }: Props) => {
 	return (
-		<div className={s.paswordInput}>
-			{title && <h4>{title}</h4>}
+		<div className={s.appInput}>
+			<div className={s.appHeader}>
+				{title && <h4 className={s.active}>{title}</h4>}
+				{inputHeaderActions}
+			</div>
+
 			<input
 				{...inputProps}
-				className={s.formInputs + ' ' + inputProps?.className}
+				className={s.formInputs ?? '' + ' ' + (inputProps?.className ?? '')}
 			/>
 		</div>
 	)

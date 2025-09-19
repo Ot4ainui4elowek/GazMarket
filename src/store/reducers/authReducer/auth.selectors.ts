@@ -5,3 +5,6 @@ export const isLoggedInSelector = (state: AppRootStateType) =>
 
 export const userSelector = (state: AppRootStateType) =>
 	state.authorization.user
+
+export const userStatusSelector = (state: AppRootStateType) =>
+	state.authorization.status

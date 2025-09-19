@@ -6,13 +6,22 @@
 	color: #000000;
 }
 
-.paswordInput {
+.appInput {
 	position: relative;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	& h4 {
-		color: #757171;
-	}
+}
+.titleInput {
+	color: #757171;
+}
+.active {
+	color: #000000;
+}
+
+.appHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

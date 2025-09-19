@@ -1,0 +1,21 @@
+.logInModule {
+	max-width: 500px;
+	width: 100%;
+	height: calc(100dvh - 10rem);
+
+	padding: 5rem 4rem;
+
+	background-color: #ffffff;
+}
+
+@media screen and (max-width: 991.98px) {
+	.logInModule {
+		max-width: calc(100dvw - 8rem);
+	}
+}
+@media screen and (max-width: 430px) {
+	.logInModule {
+		padding: 5rem 2rem;
+		max-width: calc(100dvw - 4rem);
+	}
+}

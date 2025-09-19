@@ -1,4 +1,4 @@
-import type { IUser } from '../models/response/LoginResponse'
+import type { IUser } from '../types/response/LoginResponse'
 
 export default class USER_LOCAL_STORAGE_API {
 	public static getUser(): IUser {

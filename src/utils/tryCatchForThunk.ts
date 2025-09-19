@@ -1,6 +1,6 @@
 import type { AsyncThunkConfig, GetThunkAPI } from '@reduxjs/toolkit'
 import type { AxiosError } from 'axios'
-import type { ErrorResponse } from '../models/commonTypes'
+import type { ErrorResponse } from '../types/commonTypes'
 
 export async function tryCatch<T>({
 	call,

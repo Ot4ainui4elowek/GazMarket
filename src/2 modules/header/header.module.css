@@ -1,0 +1,12 @@
+.headerBackground {
+	background: #fff;
+
+	filter: drop-shadow(2px 0px 10px #000);
+}
+.headerContent {
+	padding: 1rem;
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	align-items: center;
+}
