@@ -1,4 +1,8 @@
 .headerBackground {
+	top: 0;
+	width: 100%;
+	left: 0;
+	position: fixed;
 	background: #fff;
 
 	filter: drop-shadow(2px 0px 10px #000);

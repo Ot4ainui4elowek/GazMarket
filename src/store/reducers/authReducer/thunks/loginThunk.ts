@@ -14,7 +14,7 @@ export const authLoginThunk = createAsyncThunk(
 		try {
 			const res = await AuthService.login({ ...arg })
 			USER_LOCAL_STORAGE_API.setUser(res.data.user)
-			toast.success('Вход успешно выполнен')
+			toast.success('Вход выполнен успешно')
 			return res.data
 		} catch (error) {
 			const err = error as AxiosError

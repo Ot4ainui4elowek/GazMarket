@@ -1,0 +1,52 @@
+.profile {
+	position: absolute;
+	top: 5rem;
+	right: 1rem;
+	background-color: #414141;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	transition: ease all 0.5s;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+
+	@media screen and (max-width: 762.98px) {
+		width: 50vw;
+	}
+}
+
+.profileContainer {
+	display: flex;
+	justify-content: flex-end;
+}
+.name {
+	font-size: 1.25rem;
+}
+.email {
+	display: flex;
+	font-size: 0.9rem;
+	color: #cccccc !important;
+	border-bottom: 1px solid #fff;
+	letter-spacing: 0.15rem;
+	padding-bottom: 0.75rem;
+}
+
+.logout {
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	font-size: 0.9rem;
+	border-radius: 0.2rem;
+}
+
+.profileButton {
+	background-color: transparent;
+	padding: 0rem;
+}
+
+.profileButton:hover {
+	background-color: transparent;
+	svg path {
+		fill: #cecece;
+	}
+}
