@@ -1,6 +1,6 @@
-export const HTTPStatus = {
+export const AppHttpStatus = {
 	UNAUTHORIZED: 401,
 	FORBIDDEN: 403,
 	CONFLICT: 409,
 } as const
-export type HTTPStatus = (typeof HTTPStatus)[keyof typeof HTTPStatus]
+export type AppHttpStatus = (typeof AppHttpStatus)[keyof typeof AppHttpStatus]

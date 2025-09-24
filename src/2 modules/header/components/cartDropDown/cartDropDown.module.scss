@@ -1,0 +1,67 @@
+@use '../../../../color-scheme.scss' as *;
+.cartButton {
+	background-color: transparent;
+	padding: 0rem;
+	color: $blueColor;
+	&:hover {
+		background-color: transparent;
+	}
+	& svg {
+		width: 24px;
+	}
+	& svg path {
+		stroke: $blueColor;
+	}
+}
+
+.cart {
+	width: 430px;
+	@media screen and (max-width: 640px) {
+		width: calc(100% - 2rem);
+	}
+	height: 100vh;
+	position: absolute;
+	top: 0px;
+	padding-top: 78px;
+	right: 0rem;
+	z-index: 1000;
+	background-color: $onBackgroundColor;
+	padding: 1rem;
+	border-left: 2px solid $onBackgroundColor2;
+	// filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.backButton {
+	display: flex;
+	justify-content: center;
+	padding: 0.25rem;
+	& svg {
+		width: 24px;
+		height: 24px;
+	}
+	& svg path {
+		fill: $backgroundColor;
+	}
+}
+.cart {
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100%;
+		background-color: $onBackgroundColor;
+		z-index: -1;
+	}
+	&__headerTitle {
+		font-size: 1.5rem;
+		color: $backgroundColor;
+	}
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+}

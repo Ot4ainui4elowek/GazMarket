@@ -1,16 +1,17 @@
 import { AppLogo } from '../../../4 UI/appLogo/appLogo'
 import { useMediaQuery } from '../../../hooks/mediaQueryHook'
-import s from './headerBotom.module.css'
+import CartDropDown from '../components/cartDropDown/cartDropDown'
+import { HeaderSearchInput } from '../components/headerSearchInput/headerSearchInput'
+import s from './headerBotom.module.scss'
 
-type Props = {}
-export const HeaderBottom = ({}: Props) => {
+export const HeaderBottom = () => {
 	const minWidth763PX = useMediaQuery('(min-width: 762.89px)')
 	return (
 		<div className='container'>
 			<div className={s.headerContent}>
 				{minWidth763PX && <AppLogo />}
-				<input className={s.searchInput} type='text' placeholder='Поиск' />
-				<h4>Корзина</h4>
+				<HeaderSearchInput />
+				<CartDropDown />
 			</div>
 		</div>
 	)

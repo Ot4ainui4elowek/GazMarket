@@ -1,7 +1,8 @@
-export const RequestStatus = {
+export const AppRequestStatus = {
 	loading: 'loading',
 	success: 'success',
 	error: 'error',
 	default: 'default',
 } as const
-export type RequestStatus = (typeof RequestStatus)[keyof typeof RequestStatus]
+export type AppRequestStatus =
+	(typeof AppRequestStatus)[keyof typeof AppRequestStatus]

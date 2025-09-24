@@ -1,11 +1,13 @@
+@use '../../color-scheme.scss' as *;
+
 .headerBackground {
 	top: 0;
 	width: 100%;
 	left: 0;
 	position: fixed;
-	background: #fff;
+	background: $onBackgroundColor;
 
-	filter: drop-shadow(2px 0px 10px #000);
+	box-shadow: 5px 5px 15px $shadowColor;
 }
 .headerContent {
 	padding: 1rem;

@@ -2,8 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import { AuthAdaptiveWrapper } from '../../3 components/authAdaptiveWrapper/authAdaptiveWrapper'
 import { TextButton } from '../../4 UI/textButton/textButton'
-import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { userStatusSelector } from '../../store/reducers/authReducer/auth.selectors'
+import { useAppDispatch } from '../../store/hooks'
 import { authSignUp } from '../../store/reducers/authReducer/thunks/signUpThunk'
 import type { ISignUpRequest } from '../../types/auth'
 import { Emailinput } from './components/email_Input/email_input'
@@ -13,7 +12,6 @@ import s from './signUpModule.module.css'
 
 export const SinUpModule = () => {
 	const dispatch = useAppDispatch()
-	const status = useAppSelector(state => userStatusSelector(state))
 	const {
 		register,
 		formState: { errors },

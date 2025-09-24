@@ -1,19 +1,30 @@
 import { AnimatePresence } from 'framer-motion'
 import { motion } from 'motion/react'
 import { forwardRef } from 'react'
+import { useNavigate } from 'react-router'
 import { ProfileIcon } from '../../4 UI/profileIcon/profileIcon'
-import { useAppSelector } from '../../store/hooks'
-import { userSelector } from '../../store/reducers/authReducer/auth.selectors'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { selectUser } from '../../store/reducers/authReducer/auth.selectors'
+import { logoutThunk } from '../../store/reducers/authReducer/thunks/logoutthunk'
 import type { IWrappedComponentProps } from '../../types/wrappedComponentProps'
 import { withClickOutside } from '../../utils/withClickOutside'
 import s from './profileDropDown.module.scss'
 
 const ProfileDropDown = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 	({ open, setOpen }, ref) => {
+		const dispatch = useAppDispatch()
 		const toggleProfileDropDown = () => {
 			setOpen(!open)
 		}
-		const user = useAppSelector(state => userSelector(state))
+		const navigate = useNavigate()
+		const logOut = async () => {
+			const result = await dispatch(logoutThunk())
+			if (logoutThunk.fulfilled.match(result)) {
+				setOpen(false)
+				navigate('/login')
+			}
+		}
+		const user = useAppSelector(state => selectUser(state))
 		return (
 			<div className={s.profileContainer} ref={ref}>
 				<button className={s.profileButton} onClick={toggleProfileDropDown}>
@@ -33,7 +44,9 @@ const ProfileDropDown = forwardRef<HTMLDivElement, IWrappedComponentProps>(
 						>
 							<h4 className={s.name}>{user?.username}</h4>
 							<h4 className={s.email}>{user?.email}</h4>
-							<button className={s.logout}>Выйти</button>
+							<button onClick={logOut} className={s.logout}>
+								Выйти
+							</button>
 						</motion.div>
 					</AnimatePresence>
 				)}

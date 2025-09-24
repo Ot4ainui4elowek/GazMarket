@@ -1,9 +1,15 @@
+$mediaBreakpoint763: 762.89px;
+$mediaBreakpoint584: 584px;
+@use '../../../color-scheme.scss' as *;
 .headerTopContent {
 	display: flex;
 	gap: 1rem;
 	justify-content: space-between;
 	align-items: center;
 	padding: 1rem;
+	@media screen and (max-width: $mediaBreakpoint763) {
+		padding: 0.75rem;
+	}
 }
 
 .navigation,
@@ -12,14 +18,18 @@
 	align-items: center;
 	width: 100%;
 	justify-content: space-between;
-	@media screen and (max-width: 762.89px) {
+	.location {
+		padding: 0px;
+	}
+	@media screen and (max-width: $mediaBreakpoint763) {
 		justify-content: start;
 		flex-direction: column;
 		z-index: -1;
 		padding: 1rem;
 		transition: all 0.5s;
 
-		background-color: #464646;
+		background-color: $backgroundColor;
+
 		position: fixed;
 		padding-top: calc(66px + 1rem);
 		top: 0px;
@@ -31,7 +41,7 @@
 			flex-direction: column;
 		}
 		.navLink a {
-			color: #fff;
+			color: $onBackgroundColor;
 		}
 		.navLink,
 		.navLinkActive {
@@ -42,15 +52,21 @@
 			}
 		}
 		.location {
+			margin-top: 2rem;
 			width: 100%;
 			justify-content: center;
 			font-size: 1.25rem;
+			border-radius: 0;
+			padding-bottom: 1rem;
+			h4 {
+				text-decoration: none;
+			}
 		}
 	}
 }
 
 .headerLogo {
-	fill: #fff;
+	fill: $onBackgroundColor;
 }
 .navActive {
 	left: 0;
@@ -75,7 +91,7 @@
 		content: '';
 		width: 100%;
 		height: 2px;
-		background-color: #fff;
+		background-color: $onBackgroundColor;
 	}
 
 	&::before {
@@ -109,30 +125,27 @@
 	text-decoration: none;
 	font-weight: 600;
 	font-size: 1rem;
-	color: #bebebe;
+	color: $onBackgroundColor2;
 }
-@media screen and (min-width: 762.89px) {
+@media screen and (min-width: $mediaBreakpoint763) {
 	.navLink:hover {
 		text-decoration: underline;
 		a {
-			color: #fff;
+			color: $onBackgroundColor;
 		}
 	}
 }
 
 .navLinkActive {
 	a {
-		color: #fcc633;
+		color: $orangeColor;
 	}
 }
 
 .headerTop {
 	position: relative;
 	z-index: 1;
-	background-color: rgb(68, 68, 68);
-	& * {
-		color: #fff;
-	}
+	background-color: $backgroundColor;
 }
 
 .location {
@@ -147,16 +160,16 @@
 	svg {
 		width: 16px;
 	}
-	@media screen and (min-width: 762.89px) {
+	@media screen and (min-width: $mediaBreakpoint763) {
 		cursor: pointer;
 
 		&:hover {
 			h4 {
-				color: #fcc633;
+				color: $orangeColor;
 			}
 
 			svg path {
-				fill: #fcc633;
+				fill: $orangeColor;
 			}
 		}
 	}
