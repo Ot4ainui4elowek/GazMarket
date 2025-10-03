@@ -22,7 +22,7 @@ export const HeaderTop = ({}: Props) => {
 							className={burgerMenuIsOpen ? s.active : s.burgerButton}
 						></TextButton>
 					)}
-					{maxWidth763PX && <AppLogo textClassName={s.headerLogo} />}
+					{maxWidth763PX && <AppLogo textColor={'#fff'} />}
 					<nav className={burgerMenuIsOpen ? s.navActive : s.navigation}>
 						<button className={s.location}>
 							<NavIcon />

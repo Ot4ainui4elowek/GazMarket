@@ -1,0 +1,13 @@
+.titleClass {
+	padding: 0rem;
+	text-align: start;
+	background-color: transparent;
+	font-size: 1.25rem;
+	margin-bottom: 0.5rem;
+	&:hover {
+		background-color: transparent;
+	}
+}
+.children {
+	padding-bottom: 0.5rem;
+}

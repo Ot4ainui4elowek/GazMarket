@@ -129,9 +129,9 @@ $mediaBreakpoint584: 584px;
 }
 @media screen and (min-width: $mediaBreakpoint763) {
 	.navLink:hover {
-		text-decoration: underline;
 		a {
 			color: $onBackgroundColor;
+			text-decoration: underline;
 		}
 	}
 }

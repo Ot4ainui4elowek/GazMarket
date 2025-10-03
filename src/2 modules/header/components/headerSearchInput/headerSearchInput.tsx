@@ -3,8 +3,7 @@ import Select from 'react-select'
 import type { SelectOptionType } from '../../../../types/commonTypes'
 import s from './headerSearchInput.module.scss'
 import { inputStyles, optionStyles } from './headerSearchInputStyles'
-type Props = {}
-export const HeaderSearchInput = ({}: Props) => {
+export const HeaderSearchInput = () => {
 	const [selectedOption, setSelectedOption] = useState<SelectOptionType>(null)
 	const changeSelectedOption = (newValue: SelectOptionType) => {
 		setSelectedOption(newValue)

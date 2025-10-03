@@ -1,0 +1,134 @@
+@use '../../color-scheme.scss' as *;
+$mediabreakpoint768: 767.89px;
+$mediaBreakpoint616: calc(583.89px + 2rem);
+$mediaBreakpoint450: 449.89px;
+.footerBackground {
+	background-color: $backgroundColor;
+}
+.footer {
+	padding: 1rem 0;
+	text-align: center;
+	color: $onBackgroundColor;
+	font-size: 0.875rem;
+	margin-top: 2rem;
+
+	display: flex;
+	flex-direction: column;
+	flex: 1 0;
+	&__top {
+		display: flex;
+		gap: 1rem;
+		list-style: none;
+		justify-content: space-between;
+		border-bottom: 1px solid $onBackgroundColor2;
+		padding: 1rem 0;
+		margin: 0 1rem;
+		@media screen and (max-width: $mediaBreakpoint450) {
+			flex-direction: column;
+		}
+	}
+	&__topItem {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		text-align: start;
+		padding-right: 1rem;
+		border-right: 1px solid $onBackgroundColor2;
+		h2 {
+			margin-bottom: 0.5rem;
+		}
+		a {
+			transition: all ease 0.25s;
+			color: $onBackgroundColor;
+			text-decoration: none;
+			color: $onBackgroundColor2;
+		}
+		@media screen and (min-width: $mediabreakpoint768) {
+			a:hover {
+				transition: all ease 0.25s;
+				color: $orangeColor;
+			}
+		}
+	}
+	@media screen and (max-width: $mediaBreakpoint450) {
+		&__topItem {
+			width: calc(100% - 1rem);
+			border: none;
+			border-bottom: 1px solid $onBackgroundColor2;
+			padding-bottom: 0.5rem;
+		}
+		&__topItem:last-child {
+			padding-bottom: 0rem;
+		}
+	}
+	&__top :last-child {
+		border: none;
+	}
+	&__middle {
+		display: flex;
+		gap: 1rem;
+		justify-content: space-between;
+		padding: 1rem 0;
+		margin: 0 1rem;
+		@media screen and (max-width: $mediaBreakpoint616) {
+			flex-direction: column;
+		}
+	}
+
+	&__middlePayment,
+	&__middleSocial {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+	&__middleImageContainer,
+	&__middleSocialContainer {
+		display: flex;
+		gap: 1rem;
+	}
+	&__logo {
+		margin: 0 1rem;
+	}
+	&__bottom {
+		padding: 1rem 0;
+		margin: 0 1rem;
+		display: flex;
+		justify-content: start;
+		border-top: 1px solid $onBackgroundColor2;
+	}
+
+	&__container {
+		display: flex;
+		display: flex;
+		flex-direction: column;
+		@media screen and (max-width: $mediabreakpoint768) {
+			flex-direction: row;
+		}
+	}
+	&__containerInfo {
+		@media screen and (max-width: $mediabreakpoint768) {
+			width: 100%;
+		}
+		@media screen and (max-width: $mediaBreakpoint616) {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&__company {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		margin-top: 1rem;
+	}
+
+	&__bottomAppLogo {
+		display: flex;
+		margin: 0 1rem;
+		padding: 1rem 0;
+		border-top: 1px solid $onBackgroundColor2;
+		align-items: start;
+	}
+}

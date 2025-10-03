@@ -7,6 +7,12 @@
 	font-family: 'Poppins', sans-serif;
 	font-weight: 200;
 	font-style: normal;
+	overflow-x: hidden;
+}
+html,
+body,
+#root {
+	height: 100dvh;
 }
 *,
 input::-webkit-input-placeholder {
@@ -57,9 +63,3 @@ input:focus {
 }
 
 $containerWidth: 1280px;
-
-$backgroundColor: #4f4f4f;
-$onBackgroundColor: #ffffff;
-$onBackgroundColor2: #b3b3b3;
-$onHoverBackgroundColor: #cecece;
-$onHoverBackgroundColor2: #ffffff;

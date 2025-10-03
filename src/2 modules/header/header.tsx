@@ -4,9 +4,9 @@ import { HeaderTop } from './headerTop/headerTop'
 
 export const Header = () => {
 	return (
-		<div className={s.headerBackground}>
+		<header className={s.headerBackground}>
 			<HeaderTop />
 			<HeaderBottom />
-		</div>
+		</header>
 	)
 }
