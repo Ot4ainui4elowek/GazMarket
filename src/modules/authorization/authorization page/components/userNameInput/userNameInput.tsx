@@ -1,6 +1,6 @@
 import { AppInput } from '../../../../../shared/UI/appInput/appInput'
 import InputRHF from '../../../../../shared/styles/inputRHF/inputRHF'
-import type { ILoginInputProps } from '../../../sign up page/types/props'
+import type { ILoginInputProps } from '../../../sign-up-page/types/props'
 
 export const UserNameInput = ({ errors, register }: ILoginInputProps) => {
 	return (

@@ -6,7 +6,7 @@ import type {
 } from '../../../shared/types/response/LoginResponse'
 import type { ISignUpResponse } from '../../../shared/types/response/RegistrarionResponse'
 import type { ILoginRequest } from '../authorization page/types/props'
-import type { ISignUpRequest } from '../sign up page/types/props'
+import type { ISignUpRequest } from '../sign-up-page/types/props'
 
 export default class AuthService {
 	static async signUp(

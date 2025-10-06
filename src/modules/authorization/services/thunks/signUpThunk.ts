@@ -4,7 +4,7 @@ import type { IUser } from '../../../../shared/types/response/LoginResponse'
 import type { ISignUpResponse } from '../../../../shared/types/response/RegistrarionResponse'
 import { showAuthError } from '../../../../shared/utils/requestsErrors'
 import { tryCatch } from '../../../../shared/utils/tryCatchForThunk'
-import type { ISignUpRequest } from '../../sign up page/types/props'
+import type { ISignUpRequest } from '../../sign-up-page/types/props'
 import AuthService from '../AuthService'
 
 export const authSignUp = createAsyncThunk(

@@ -1,6 +1,6 @@
 import { AppPasswordInput } from '../../../../../shared/UI/passwordInput/passwordInput'
 import InputRHF from '../../../../../shared/styles/inputRHF/inputRHF'
-import type { ILoginInputProps } from '../../../sign up page/types/props'
+import type { ILoginInputProps } from '../../../sign-up-page/types/props'
 export const UserPasswordInput = ({ errors, register }: ILoginInputProps) => {
 	return (
 		<label className={InputRHF.inputStyle}>
