@@ -34,7 +34,12 @@ const _Dashboard = ({}: Props) => {
 						<h3>{errorMessage}</h3>
 					</div>
 				)}
-				{status != 'error' && (
+				{status == 'loading' && (
+					<div className={s.dashboard__errorBlock}>
+						<h2>Загрузка</h2>
+					</div>
+				)}
+				{status != 'error' && status != 'loading' && (
 					<div className={s.boilersList}>
 						{boilers?.map(e => (
 							<BoilerItem key={e.name + e.id} boiler={e} />
