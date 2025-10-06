@@ -15,4 +15,5 @@ export const showAuthError = (error: unknown) => {
 			toast.error('Вы не авторизированы')
 			return
 	}
+	toast.error(err.message)
 }

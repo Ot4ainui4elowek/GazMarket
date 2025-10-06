@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { AuthorizationPage } from '../../modules/authorization/authorization page'
-import { Dashboard } from '../../modules/dashboard/inde'
+import { Dashboard } from '../../modules/dashboard'
 
 import { AuthCheckAdapterPage } from '../../layouts/check-authorization-wrapper/authCheckAdapterPage'
 import { SignUpPage } from '../../modules/authorization/sign-up-page'

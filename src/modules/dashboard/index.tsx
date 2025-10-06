@@ -1,33 +1,29 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { AppWrapper } from '../../layouts/wrapper/wrapper'
 import { PageSwitcher } from '../../components/pageSwitcher/pageSwitcher'
-import { useAppSelector } from '../../shared/store/hooks'
-import { selectUser } from '../authorization/store/auth.selectors'
+import { AppWrapper } from '../../layouts/wrapper/wrapper'
+import { useAppDispatch, useAppSelector } from '../../shared/store/hooks'
 import { BoilerItem } from './components/boilerItem/boilerItem'
 import s from './dashboard.module.scss'
-import BoilersService from './services/BoilersService'
-import type { IBoilerParts } from './types/boiler-parts'
+import { getBoilersThunk } from './services/thunks/get-boilers-thunk'
+import { selectBoilers, selectBoilersCount } from './store/boilerSelectors'
 type Props = {}
 const _Dashboard = ({}: Props) => {
-	const user = useAppSelector(state => selectUser(state))
-	const productsCount = useRef(-1)
-	let flag = true
 	const [curentPage, setCurentPage] = useState(0)
-	const [boilers, setBoilers] = useState<IBoilerParts[] | null>(null)
+	const boilers = useAppSelector(state => selectBoilers(state))
+	const count = useAppSelector(state => selectBoilersCount(state))
+	const dispatch = useAppDispatch()
 
-	const getBoilers = async () => {
-		const res = await BoilersService.getBoilers({
-			limit: 20,
-			offset: curentPage,
-		})
-		if (flag) {
-			productsCount.current = res.data.count
-			flag = false
-		}
-		setBoilers(res.data.rows)
+	const _limit = 20
+
+	const getBoilers = () => {
+		dispatch(getBoilersThunk({ limit: _limit, offset: curentPage }))
 	}
-
+	const _flag = useRef(false)
 	useEffect(() => {
+		if (_flag.current) {
+			window.scrollTo({ top: 0, behavior: 'smooth' })
+		}
+		_flag.current = true
 		getBoilers()
 	}, [curentPage])
 	return (
@@ -39,8 +35,8 @@ const _Dashboard = ({}: Props) => {
 				))}
 			</div>
 			<PageSwitcher
-				limit={20}
-				maxCount={productsCount.current}
+				limit={_limit}
+				maxCount={count}
 				page={curentPage}
 				setPage={setCurentPage}
 			/>
