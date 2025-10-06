@@ -1,18 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { PageSwitcher } from '../../components/pageSwitcher/pageSwitcher'
 import { AppWrapper } from '../../layouts/wrapper/wrapper'
-import { useAppDispatch, useAppSelector } from '../../shared/store/hooks'
+import { useAppDispatch } from '../../shared/store/hooks'
 import { BoilerItem } from './components/boilerItem/boilerItem'
 import s from './dashboard.module.scss'
 import { getBoilersThunk } from './services/thunks/get-boilers-thunk'
-import { selectBoilers, selectBoilersCount } from './store/boilerSelectors'
+import { boilersSelectros } from './store/boilerSelectors'
 type Props = {}
 const _Dashboard = ({}: Props) => {
 	const [curentPage, setCurentPage] = useState(0)
-	const boilers = useAppSelector(state => selectBoilers(state))
-	const count = useAppSelector(state => selectBoilersCount(state))
 	const dispatch = useAppDispatch()
-
+	const { boilers, count, errorMessage, status } = boilersSelectros()
 	const _limit = 20
 
 	const getBoilers = () => {
@@ -28,18 +26,28 @@ const _Dashboard = ({}: Props) => {
 	}, [curentPage])
 	return (
 		<AppWrapper>
-			<h1 className={s.dashboardTitle}>Газовые котлы</h1>
-			<div className={s.boilersList}>
-				{boilers?.map(e => (
-					<BoilerItem key={e.name + e.id} boiler={e} />
-				))}
+			<div className={s.dashboard}>
+				<h1 className={s.dashboardTitle}>Газовые котлы</h1>
+				{status == 'error' && (
+					<div className={s.dashboard__errorBlock}>
+						<h2>Упс! Произошла ошибка.</h2>
+						<h3>{errorMessage}</h3>
+					</div>
+				)}
+				{status != 'error' && (
+					<div className={s.boilersList}>
+						{boilers?.map(e => (
+							<BoilerItem key={e.name + e.id} boiler={e} />
+						))}
+					</div>
+				)}
+				<PageSwitcher
+					limit={_limit}
+					maxCount={count}
+					page={curentPage}
+					setPage={setCurentPage}
+				/>
 			</div>
-			<PageSwitcher
-				limit={_limit}
-				maxCount={count}
-				page={curentPage}
-				setPage={setCurentPage}
-			/>
 		</AppWrapper>
 	)
 }

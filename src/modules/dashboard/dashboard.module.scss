@@ -1,6 +1,20 @@
-.Dashboard {
+.dashboard {
 	display: flex;
 	flex-direction: column;
+	min-height: 80dvh;
+	justify-content: space-between;
+	&__errorBlock {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1rem;
+		margin: 0 auto;
+		align-items: center;
+		h3 {
+			color: red;
+			font-weight: 600;
+		}
+	}
 }
 .boilersList {
 	width: min(calc(1280px - 2rem), calc(100vw - 2rem));
