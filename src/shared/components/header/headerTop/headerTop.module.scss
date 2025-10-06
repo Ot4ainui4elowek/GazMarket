@@ -1,0 +1,180 @@
+$mediaBreakpoint763: 762.89px;
+$mediaBreakpoint584: 584px;
+@use '../../../../color-scheme.scss' as *;
+.headerTopContent {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	@media screen and (max-width: $mediaBreakpoint763) {
+		padding: 0.75rem;
+	}
+}
+
+.navigation,
+.navActive {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	justify-content: space-between;
+	.location {
+		padding: 0px;
+	}
+	@media screen and (max-width: $mediaBreakpoint763) {
+		justify-content: start;
+		flex-direction: column;
+		z-index: -1;
+		padding: 1rem;
+		transition: all 0.5s;
+
+		background-color: $backgroundColor;
+
+		position: fixed;
+		padding-top: calc(66px + 1rem);
+		top: 0px;
+		left: -200%;
+		width: calc(100vw - 2rem);
+		height: calc(100dvh - 66px - 1rem);
+		ul {
+			margin-top: 1rem;
+			flex-direction: column;
+		}
+		.navLink a {
+			color: $onBackgroundColor;
+		}
+		.navLink,
+		.navLinkActive {
+			text-align: center;
+			a {
+				font-size: 1.5rem;
+				font-weight: normal;
+			}
+		}
+		.location {
+			margin-top: 2rem;
+			width: 100%;
+			justify-content: center;
+			font-size: 1.25rem;
+			border-radius: 0;
+			padding-bottom: 1rem;
+			h4 {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.headerLogo {
+	fill: $onBackgroundColor;
+}
+.navActive {
+	left: 0;
+}
+
+.burgerButton,
+.active {
+	display: flex;
+	width: 30px;
+	height: 16px;
+	position: relative;
+
+	&:hover {
+		background-color: transparent;
+	}
+
+	&::before,
+	&::after {
+		transition: all 0.5s;
+		left: 0;
+		position: absolute;
+		content: '';
+		width: 100%;
+		height: 2px;
+		background-color: $onBackgroundColor;
+	}
+
+	&::before {
+		top: 1px;
+	}
+	&::after {
+		bottom: 2px;
+	}
+}
+
+.active {
+	&::before,
+	&::after {
+		top: calc(50% - 2px);
+		rotate: 45deg;
+	}
+	&::before {
+		rotate: -45deg;
+	}
+}
+
+.navigationList {
+	display: flex;
+	gap: 1rem;
+	list-style: none;
+	flex-wrap: wrap;
+}
+
+.navLink a,
+.navLinkActive a {
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 1rem;
+	color: $onBackgroundColor2;
+}
+@media screen and (min-width: $mediaBreakpoint763) {
+	.navLink:hover {
+		a {
+			color: $onBackgroundColor;
+			text-decoration: underline;
+		}
+	}
+}
+
+.navLinkActive {
+	a {
+		color: $orangeColor;
+	}
+}
+
+.headerTop {
+	position: relative;
+	z-index: 1;
+	background-color: $backgroundColor;
+}
+
+.location {
+	padding: none;
+	background-color: transparent;
+	&:hover {
+		background-color: transparent;
+	}
+	display: flex;
+	align-items: center;
+	gap: 0.2rem;
+	svg {
+		width: 16px;
+	}
+	@media screen and (min-width: $mediaBreakpoint763) {
+		cursor: pointer;
+
+		&:hover {
+			h4 {
+				color: $orangeColor;
+			}
+
+			svg path {
+				fill: $orangeColor;
+			}
+		}
+	}
+}
+.locationName {
+	font-weight: 600;
+	text-decoration: underline;
+}

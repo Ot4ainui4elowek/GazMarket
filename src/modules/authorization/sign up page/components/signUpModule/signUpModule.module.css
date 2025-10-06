@@ -1,0 +1,10 @@
+.signupModule {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background-color: #fff;
+}
+.title {
+	font-weight: 600;
+	margin-bottom: 4rem;
+}

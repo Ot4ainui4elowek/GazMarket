@@ -1,0 +1,24 @@
+.loginSections {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+
+	& h4 {
+		color: #646464;
+	}
+}
+
+.backgroundImage {
+	position: fixed;
+	z-index: -1;
+	left: 30%;
+	top: 0;
+	object-fit: cover;
+	width: 75vw;
+	height: 100dvh;
+}
+@media screen and (min-width: 4193.98px) {
+	.backgroundImage {
+		left: 40%;
+	}
+}

@@ -1,0 +1,65 @@
+@use '../../../../../color-scheme.scss' as *;
+$media-breakpoint: 762.98px;
+$mediaBreakpoint430: 429.89px;
+.profile {
+	position: absolute;
+	top: 5rem;
+	right: 1rem;
+	z-index: 1;
+	background-color: $backgroundColor;
+	padding: 0.75rem;
+	border-radius: 0.5rem;
+	transition: ease all 0.5s;
+
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+
+	@media screen and (max-width: $media-breakpoint) {
+		width: 50vw;
+	}
+
+	@media screen and (max-width: $mediaBreakpoint430) {
+		width: calc(100% - 1.5rem);
+		right: 0;
+		top: 4rem;
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+	}
+}
+
+.profileContainer {
+	display: flex;
+	justify-content: flex-end;
+}
+.name {
+	color: #fff;
+	font-size: 1.25rem;
+}
+.email {
+	display: flex;
+	font-size: 0.9rem;
+	color: $onBackgroundColor2;
+	border-bottom: 1px solid $onBackgroundColor;
+	letter-spacing: 0.15rem;
+	padding-bottom: 0.75rem;
+}
+
+.logout {
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+	font-size: 0.9rem;
+	border-radius: 0.2rem;
+}
+
+.profileButton {
+	background-color: transparent;
+	padding: 0rem;
+}
+
+.profileButton:hover {
+	background-color: transparent;
+	svg path {
+		fill: $onHoverBackgroundColor;
+	}
+}
