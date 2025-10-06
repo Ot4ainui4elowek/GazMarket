@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { PageSwitcher } from '../../shared/components/pageSwitcher/pageSwitcher'
-import { AppWrapper } from '../../shared/layouts/wrapper/wrapper'
+import { AppWrapper } from '../../layouts/wrapper/wrapper'
+import { PageSwitcher } from '../../components/pageSwitcher/pageSwitcher'
 import { useAppSelector } from '../../shared/store/hooks'
 import { selectUser } from '../authorization/store/auth.selectors'
 import { BoilerItem } from './components/boilerItem/boilerItem'

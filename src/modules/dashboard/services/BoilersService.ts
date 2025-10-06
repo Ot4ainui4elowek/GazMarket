@@ -1,5 +1,5 @@
 import type { AxiosResponse } from 'axios'
-import $api from '../../../shared/services'
+import $api from '../../../services'
 import type { BoilersRequest } from '../types/boilers-requests'
 import type { BoilersResponse } from '../types/boilers-response'
 

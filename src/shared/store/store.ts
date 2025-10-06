@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
+import cartReducer from '../../components/header/components/cartDropDown/store/cartReducer'
 import authorizationReducer from '../../modules/authorization/store/authorizationReducer'
 import { boilerReducer } from '../../modules/dashboard/store/boilerReducer'
-import cartReducer from '../components/header/components/cartDropDown/store/cartReducer'
 
 export const store = configureStore({
 	reducer: {
